@@ -2,9 +2,9 @@ import './css/reset.css';
 import './css/App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import {} from 'reactstrap';
-import MainFrame from './js/MainFrame';
+import MainFrame from './components/MainFrame';
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import About from './js/About';
+import About from './pages/About';
 
 function App() {
   return (

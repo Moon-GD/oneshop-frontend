@@ -1,0 +1,15 @@
+.right {
+  width: 50vw;
+  height: 98vh;
+  margin-right: 5vw;
+  perspective: 60vw;
+}
+
+.ad {
+  margin-top: 30vh;
+  width: 90%;
+  height: 35%;
+  background-color:#E4E4E4;
+  transform:rotateX(-10deg) rotateY(-30deg) rotateZ(4deg);
+  box-shadow: 0.6vh -0.3vh 5px #7c7c7c;
+}

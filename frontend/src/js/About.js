@@ -1,9 +1,12 @@
 import '../css/common.css';
+import Ad from './Ad';
+import AboutDescription from './AboutDescription';
 
 function About() {
   return (
     <section className="main">
-      About
+      <AboutDescription></AboutDescription>
+      <Ad></Ad>
     </section>
   );
 }

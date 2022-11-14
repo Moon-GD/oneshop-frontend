@@ -53,11 +53,24 @@ function NavBar() {
     }
   }
 
+  // 로그인 페이지 가는 함수
+  function goLogin() {
+    let adFrame = document.querySelector('.ad')
+    adFrame.style.cssText = `margin-top: 10vh;
+  width: 90%;
+  height: 60%;
+  background-color:#E4E4E4;
+  transform:translateY(10vh) translateX(-10vw);
+  transition-duration:1s;
+  box-shadow: 0.6vh -0.3vh 5px #7c7c7c;`
+    
+  }
+
   return (
     <>
       <Nav vertical className="left">
         <NavItem>
-          <NavLink href="#" className="nav__link">
+          <NavLink href="#" className="nav__link" onClick={goLogin}>
             <h3>login</h3>
           </NavLink>
         </NavItem>

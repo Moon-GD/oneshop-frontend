@@ -54,6 +54,19 @@ function NavBar() {
 
   // 로그인 페이지 가는 함수
   function goLogin() {
+    let navbarLogin = document.querySelector("#navbar__login");
+    if (navbarLogin.textContent === 'logout') {
+      // 사용자 정보 안 보이게 처리
+      let userInfo = document.querySelector("#userinfo-area");
+      userInfo.style.opacity = 0;
+      userInfo.style.display = 'none';
+
+      // navbar 글자 login으로 변경
+      navbarLogin.textContent = "login";
+
+      return
+    }
+
     // blur 효과
     let blurDiv = document.querySelector(".blur");
     let navBar = document.querySelector("#navbar");
@@ -88,7 +101,7 @@ function NavBar() {
       <Nav vertical className="left">
         <NavItem>
           <NavLink href="#" className="nav__link" onClick={goLogin}>
-            <h3>login</h3>
+            <h3 id='navbar__login'>login</h3>
           </NavLink>
         </NavItem>
         <NavItem>

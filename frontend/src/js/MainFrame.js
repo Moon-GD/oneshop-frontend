@@ -1,6 +1,7 @@
 import '../css/common.css';
 import NavBar from './NavBar';
 import Ad from './Ad';
+import UserInfo from './UserInfo';
 
 export default function MainFrame() {
   return (

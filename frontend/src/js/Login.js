@@ -4,6 +4,7 @@ import '../css/Login.css';
 
 function Login() {
 
+  // AD Frame 닫아주는 함수
   function goBack() {
 
     // blur 제거
@@ -36,6 +37,8 @@ function Login() {
     }, 0)
   }
 
+  // 로그인 Form 안 보이게 처리하고,
+  // 회원가입 Form 띄워주는 함수
   function registerPop() {
     let loginForm = document.querySelector('#login');
     let registerForm = document.querySelector("#register");
@@ -49,6 +52,21 @@ function Login() {
       setTimeout(() => {
         registerForm.style.opacity = i * 0.01;
       }, i * 10);
+    }
+  }
+
+  // 사용자 로그인 처리 함수
+  function doLogin() {
+    let navbar_login = document.querySelector("#navbar__login");
+    navbar_login.textContent = 'logout'
+    let userInfo = document.querySelector("#userinfo-area");
+    goBack();
+     userInfo.style.display = "block";
+
+    for(let i=0;i<100;i++) {
+      setTimeout(() => {
+        userInfo.style.opacity = 0.01 * i;
+      }, i * 10)
     }
   }
 
@@ -72,7 +90,7 @@ function Login() {
           </FormGroup>
         </Form>
         <div className="button-area">
-          <Button className="login-btn">Login</Button>
+          <Button className="login-btn" onClick={doLogin}>Login</Button>
           <Button className="login-btn" onClick={registerPop}>
             Register
           </Button>

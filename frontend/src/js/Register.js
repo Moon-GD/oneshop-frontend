@@ -36,7 +36,6 @@ function Register() {
             name="ID"
             placeholder="ID to use"
             type="ID"
-            minLength={5}
           />
         </FormGroup>
         <FormGroup>
@@ -46,7 +45,6 @@ function Register() {
             name="password"
             placeholder="password"
             type="password"
-            minLength={5}
           />
         </FormGroup>
         <FormGroup>

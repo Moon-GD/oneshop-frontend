@@ -1,0 +1,16 @@
+.descriptionShop {
+  width: 13vw;
+  height: 100%;
+  margin-left: 20vw;
+  justify-content: center;
+}
+
+.descriptionShop_text {
+  margin-top: 30vh;
+  font-weight: 300;
+  font-size: .9vw;
+}
+
+.descriptionShop h2 span{
+  font-size: 0.3vw;
+}

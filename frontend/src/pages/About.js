@@ -1,7 +1,7 @@
 import '../css/common.css';
-import Ad from './Ad';
-import AboutDescription from './AboutDescription';
-import UserInfo from './UserInfo';
+import Ad from '../components/Ad';
+import AboutDescription from '../components/AboutDescription';
+import UserInfo from '../components/UserInfo';
 
 function About() {
   return (

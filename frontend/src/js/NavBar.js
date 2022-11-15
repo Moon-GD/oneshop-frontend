@@ -71,6 +71,8 @@ function NavBar() {
     // 로그인 폼 천천히 등장
     setTimeout(() => {
       let loginForm = document.querySelector("#login");
+      let closeButton = document.querySelector('.close-button');
+      closeButton.style.display = 'block';
       loginForm.style.display = "block";
       
       for (let i = 0; i < 100; i++) {

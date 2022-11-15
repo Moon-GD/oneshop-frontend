@@ -1,8 +1,11 @@
 import { Form, FormGroup, Label, Input, Button, CloseButton } from "reactstrap";
+import Register from "./Register";
 import '../css/Login.css';
 
 function Login() {
+
   function goBack() {
+
     // blur 제거
     let navBar = document.querySelector("#navbar");
     let blurDiv = document.querySelector(".blur");
@@ -14,6 +17,15 @@ function Login() {
     loginForm.style.opacity = 0;
     loginForm.style.display = 'none';
 
+    // 회원가입 폼 제거
+    let registerForm = document.querySelector("#register");
+    registerForm.opacity = 0;
+    registerForm.style.display = 'none';
+
+    // X 표시 제거
+    let closeButton = document.querySelector(".close-button");
+    closeButton.style.display = 'none';
+
     // 광고판 원래대로
     let adFrame = document.querySelector(".ad");
     setTimeout(() => {
@@ -24,32 +36,53 @@ function Login() {
     }, 0)
   }
 
+  function registerPop() {
+    let loginForm = document.querySelector('#login');
+    let registerForm = document.querySelector("#register");
+
+    loginForm.style.opacity = 0;
+    loginForm.style.display = 'none';
+    registerForm.style.display = "block";
+
+
+    for(let i = 0;i<100;i++) {
+      setTimeout(() => {
+        registerForm.style.opacity = i * 0.01;
+      }, i * 10);
+    }
+  }
+
   return (
-    <div id="login">
-      <div className='close-button' onClick={goBack}>
+    <>
+      <div id="login">
+        <h1 className="login-title">Login</h1>
+        <Form className="login-form">
+          <FormGroup>
+            <Label for="exampleID">ID</Label>
+            <Input id="exampleID" name="email" placeholder="아이디" type="ID" />
+          </FormGroup>
+          <FormGroup>
+            <Label for="examplePassword">Password</Label>
+            <Input
+              id="examplePassword"
+              name="password"
+              placeholder="비밀번호"
+              type="password"
+            />
+          </FormGroup>
+        </Form>
+        <div className="button-area">
+          <Button className="login-btn">Login</Button>
+          <Button className="login-btn" onClick={registerPop}>
+            Register
+          </Button>
+        </div>
+      </div>
+      <Register></Register>
+      <div className="close-button" onClick={goBack}>
         <CloseButton />
       </div>
-      <h1 className="login-title">Login</h1>
-      <Form className="login-form">
-        <FormGroup>
-          <Label for="exampleID">ID</Label>
-          <Input id="exampleID" name="email" placeholder="아이디" type="ID" />
-        </FormGroup>
-        <FormGroup>
-          <Label for="examplePassword">Password</Label>
-          <Input
-            id="examplePassword"
-            name="password"
-            placeholder="비밀번호"
-            type="password"
-          />
-        </FormGroup>
-      </Form>
-      <div className="button-area">
-        <Button className="login-btn">Login</Button>
-        <Button className="login-btn">Register</Button>
-      </div>
-    </div>
+    </>
   );
 }
 

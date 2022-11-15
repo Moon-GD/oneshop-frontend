@@ -1,9 +1,13 @@
 import '../css/Ad.css'
+import Login from './Login';
+
 /* import imgfile from './ad.png' */
 function Ad() {
   return (
     <div className="right">
-      <div class='ad'></div>
+      <div className="ad">
+        <Login></Login>
+      </div>
     </div>
   );
 }

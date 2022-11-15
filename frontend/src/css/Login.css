@@ -1,0 +1,28 @@
+#login {
+  display:none;
+  opacity: 0;
+}
+
+.login-title {
+  padding-top: 5%;
+  text-align: center;
+}
+
+.login-form {
+  padding: 2%;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.button-area {
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
+  padding: 0 30%;
+}
+
+.close-button {
+  position:absolute;
+  top: 2%;
+  right: 2%; 
+}

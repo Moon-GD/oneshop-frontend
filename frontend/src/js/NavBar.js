@@ -1,7 +1,6 @@
 import {Nav, NavItem, NavLink} from 'reactstrap';
-import { BrowserRouter, Routes, Route, Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import '../css/NavBar.css';
-import About from './About';
 
 function NavBar() {
   // true : 자식 요소 렌더링 중
@@ -56,14 +55,22 @@ function NavBar() {
   // 로그인 페이지 가는 함수
   function goLogin() {
     let adFrame = document.querySelector('.ad')
-    adFrame.style.cssText = `margin-top: 10vh;
-  width: 90%;
-  height: 60%;
-  background-color:#E4E4E4;
-  transform:translateY(10vh) translateX(-10vw);
-  transition-duration:1s;
-  box-shadow: 0.6vh -0.3vh 5px #7c7c7c;`
-    
+    adFrame.style.cssText = `margin-top: 3vh;
+    margin-left:2vw; width: 90%; height: 80%; background-color:#E4E4E4;
+    transform:translateY(10vh) translateX(-10vw);
+    transition-duration:1s;
+    box-shadow: 0.6vh -0.3vh 5px #7c7c7c;`
+
+    setTimeout(() => {
+      let loginForm = document.querySelector("#login");
+      loginForm.style.display = "block";
+      
+      for (let i = 0; i < 100; i++) {
+        setTimeout(() => {
+          loginForm.style.opacity = i * 0.01;
+        }, i * 10);
+      }
+    }, 200)
   }
 
   return (

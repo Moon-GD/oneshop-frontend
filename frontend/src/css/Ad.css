@@ -13,3 +13,16 @@
   transform:rotateX(-10deg) rotateY(-30deg) rotateZ(4deg);
   box-shadow: 0.6vh -0.3vh 5px #7c7c7c;
 }
+
+.blur {
+  z-index: 0;
+  display:none;
+  width: 100vw;
+  height: 100vh;
+  position:absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  opacity: 0.2;
+}

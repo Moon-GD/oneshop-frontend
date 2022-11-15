@@ -3,10 +3,19 @@ import '../css/Login.css';
 
 function Login() {
   function goBack() {
-    let adFrame = document.querySelector(".ad");
+    // blur 제거
+    let navBar = document.querySelector("#navbar");
+    let blurDiv = document.querySelector(".blur");
+    navBar.style.opacity = 1;
+    blurDiv.style.display = "none";
+
+    // 로그인 폼 제거
     let loginForm = document.querySelector('#login');
     loginForm.style.opacity = 0;
     loginForm.style.display = 'none';
+
+    // 광고판 원래대로
+    let adFrame = document.querySelector(".ad");
     setTimeout(() => {
       adFrame.style.cssText = `margin-top: 30vh; width: 90%;
       height: 35%; background-color:#E4E4E4;

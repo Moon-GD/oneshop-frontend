@@ -54,13 +54,21 @@ function NavBar() {
 
   // 로그인 페이지 가는 함수
   function goLogin() {
+    // blur 효과
+    let blurDiv = document.querySelector(".blur");
+    let navBar = document.querySelector("#navbar");
+    navBar.style.opacity = 0.2;
+    blurDiv.style.display = 'block';
+
+    // 광고판 애니메이션
     let adFrame = document.querySelector('.ad')
-    adFrame.style.cssText = `margin-top: 3vh;
+    adFrame.style.cssText = `margin-top: 3vh; z-index:3; position:relative;
     margin-left:2vw; width: 90%; height: 80%; background-color:#E4E4E4;
     transform:translateY(10vh) translateX(-10vw);
     transition-duration:1s;
     box-shadow: 0.6vh -0.3vh 5px #7c7c7c;`
 
+    // 로그인 폼 천천히 등장
     setTimeout(() => {
       let loginForm = document.querySelector("#login");
       loginForm.style.display = "block";
@@ -74,7 +82,7 @@ function NavBar() {
   }
 
   return (
-    <>
+    <div id='navbar'>
       <Nav vertical className="left">
         <NavItem>
           <NavLink href="#" className="nav__link" onClick={goLogin}>
@@ -125,7 +133,7 @@ function NavBar() {
         </NavItem>
         <Outlet></Outlet>
       </Nav>
-    </>
+    </div>
   );
 }
 

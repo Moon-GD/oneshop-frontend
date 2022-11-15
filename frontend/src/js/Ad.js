@@ -8,6 +8,7 @@ function Ad() {
       <div className="ad">
         <Login></Login>
       </div>
+      <div className='blur'></div>
     </div>
   );
 }

@@ -8,3 +8,7 @@
   display: flex;
   font-family: 'Noto Sans Lao Looped';
 }
+
+.temp {
+  z-index:100;
+}

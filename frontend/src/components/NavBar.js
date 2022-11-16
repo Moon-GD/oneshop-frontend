@@ -3,6 +3,17 @@ import { Link, Outlet } from 'react-router-dom'
 import '../css/NavBar.css'
 
 function NavBar() {
+    let loginText = "";
+    let userInfo = document.querySelector("#userinfo-area");
+
+    if (userInfo == null) {
+      loginText = "login";
+    } else if (userInfo.textContent === "") {
+      loginText = "login";
+    } else {
+      loginText = "logout";
+    }
+
     // true : 자식 요소 렌더링 중
     // flase : 자식 요소 안 보이는 상태
     let newsFlag = false,
@@ -94,71 +105,71 @@ function NavBar() {
     }
 
     return (
-        <div id='navbar'>
-            <Nav vertical className='left'>
-                <NavItem>
-                    <NavLink href='#' className='nav__link' onClick={goLogin}>
-                        <h3 id='navbar__login'>login</h3>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href='#' className='nav__link'>
-                        <Link to='/about' className='nav__link'>
-                            <h3>about</h3>
-                        </Link>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink
-                        href='#'
-                        className='nav__link'
-                        onClick={() => {
-                            clickCategory('news')
-                        }}
-                    >
-                        <Link to='/news' className='nav__link'>
-                            <h3>news</h3>
-                            <div id='news'></div>
-                        </Link>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink
-                        href='#'
-                        className='nav__link'
-                        onClick={() => {
-                            clickCategory('works')
-                        }}
-                    >
-                      <Link to='/work' className='nav__link'>
-                        <h3>works</h3>
-                        <div id='works'></div>
-                        </Link>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink
-                        href='#'
-                        className='nav__link'
-                        onClick={() => {
-                            clickCategory('shop')
-                        }}
-                    >
-                        <Link to='/shop' className='nav__link'>
-                            <h3>shop</h3>
-                            <div id='shop'></div>
-                        </Link>
-                    </NavLink>
-                </NavItem>
-                <NavItem>
-                    <NavLink href='#' className='nav__link'>
-                        <h3>c/s</h3>
-                    </NavLink>
-                </NavItem>
-                <Outlet></Outlet>
-            </Nav>
-        </div>
-    )
+      <div id="navbar">
+        <Nav vertical className="left">
+          <NavItem>
+            <NavLink href="#" className="nav__link" onClick={goLogin}>
+              <h3 id="navbar__login">{loginText}</h3>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#" className="nav__link">
+              <Link to="/about" className="nav__link">
+                <h3>about</h3>
+              </Link>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              href="#"
+              className="nav__link"
+              onClick={() => {
+                clickCategory("news");
+              }}
+            >
+              <Link to="/news" className="nav__link">
+                <h3>news</h3>
+                <div id="news"></div>
+              </Link>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              href="#"
+              className="nav__link"
+              onClick={() => {
+                clickCategory("works");
+              }}
+            >
+              <Link to="/work" className="nav__link">
+                <h3>works</h3>
+                <div id="works"></div>
+              </Link>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink
+              href="#"
+              className="nav__link"
+              onClick={() => {
+                clickCategory("shop");
+              }}
+            >
+              <Link to="/shop" className="nav__link">
+                <h3>shop</h3>
+                <div id="shop"></div>
+              </Link>
+            </NavLink>
+          </NavItem>
+          <NavItem>
+            <NavLink href="#" className="nav__link">
+              <h3>c/s</h3>
+            </NavLink>
+          </NavItem>
+          <Outlet></Outlet>
+        </Nav>
+      </div>
+    );
 }
 
 export default NavBar

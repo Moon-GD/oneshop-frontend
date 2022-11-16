@@ -3,17 +3,31 @@ import {Form, FormGroup, Label, Input, Button} from 'reactstrap';
 
 function Register() {
   function registerPopOut() {
+      const info={
+        name: "gd",
+        userId: "king4mun",
+        password: "abcde12345",
+        email: "king4mun@gmail.com",
+      }
+    fetch("http://3.36.122.123:8080/api/createMember", {
+      method: "POST", 
+      body: JSON.stringify(info),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then();
+
     let loginForm = document.querySelector("#login");
     let registerForm = document.querySelector("#register");
 
     registerForm.style.display = "none";
     registerForm.style.opacity = 0;
     loginForm.style.display = "block";
-    for(let i = 0;i<100;i++) {
+    for (let i = 0; i < 100; i++) {
       setTimeout(() => {
         loginForm.style.opacity = 0.01 * i;
-      }, i * 10)
-    }    
+      }, i * 10);
+    }
   }
 
   return (

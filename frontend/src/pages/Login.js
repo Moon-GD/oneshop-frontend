@@ -54,17 +54,20 @@ function Login() {
 
     // 사용자 로그인 처리 함수
     function doLogin() {
-        let navbar_login = document.querySelector('#navbar__login')
-        navbar_login.textContent = 'logout'
-        let userInfo = document.querySelector('#userinfo-area')
-        goBack()
-        userInfo.style.display = 'block'
+      let userName = "GD"; // 나중에 백엔드로 전달 받을 변수
+      
+      let navbar_login = document.querySelector("#navbar__login");
+      navbar_login.textContent = "logout";
+      let userInfo = document.querySelector("#userinfo-area");
+      userInfo.textContent = userName + "회원님 반갑습니다.";
+      goBack();
+      userInfo.style.display = "block";
 
-        for (let i = 0; i < 100; i++) {
-            setTimeout(() => {
-                userInfo.style.opacity = 0.01 * i
-            }, i * 10)
-        }
+      for (let i = 0; i < 100; i++) {
+        setTimeout(() => {
+          userInfo.style.opacity = 0.01 * i;
+        }, i * 10);
+      }
     }
 
     return (

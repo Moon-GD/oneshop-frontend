@@ -10,7 +10,7 @@ function Register() {
         email: "king4mun@gmail.com",
       }
     fetch("http://3.36.122.123:8080/api/createMember", {
-      method: "POST",
+      method: "POST", 
       body: JSON.stringify(info),
       headers: {
         "Content-Type": "application/json",

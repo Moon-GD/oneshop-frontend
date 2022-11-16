@@ -1,6 +1,5 @@
 import '../css/Ad.css'
 import Login from './Login';
-
 /* import imgfile from './ad.png' */
 function Ad() {
   return (

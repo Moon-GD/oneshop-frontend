@@ -3,6 +3,20 @@ import { Link, Outlet } from "react-router-dom";
 import '../css/NavBar.css';
 
 function NavBar() {
+  let loginText = "";
+  let userInfo = document.querySelector("#userinfo-area");
+  
+  console.log(userInfo)
+  if(userInfo == null) {
+    loginText = "login";
+  }
+  else if(userInfo.textContent === '') {
+    loginText = "login";
+  }
+  else {
+    loginText = "logout";
+  }
+
   // true : 자식 요소 렌더링 중
   // flase : 자식 요소 안 보이는 상태
   let newsFlag = false, worksFlag = false, shopFlag = false
@@ -101,7 +115,7 @@ function NavBar() {
       <Nav vertical className="left">
         <NavItem>
           <NavLink href="#" className="nav__link" onClick={goLogin}>
-            <h3 id='navbar__login'>login</h3>
+            <h3 id='navbar__login'>{loginText}</h3>
           </NavLink>
         </NavItem>
         <NavItem>

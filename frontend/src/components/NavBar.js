@@ -1,12 +1,6 @@
 import { Nav, NavItem, NavLink } from 'reactstrap'
-<<<<<<< HEAD
 import { Link, Outlet } from 'react-router-dom'
 import '../css/NavBar.css'
-=======
-import { BrowserRouter, Routes, Route, Link, Outlet } from 'react-router-dom'
-import '../css/NavBar.css'
-import About from '../pages/About'
->>>>>>> a70fb51a2cf8c25a9284b8ad73d46bf9fb2631c1
 
 function NavBar() {
     // true : 자식 요소 렌더링 중
@@ -57,7 +51,6 @@ function NavBar() {
 
     // 로그인 페이지 가는 함수
     function goLogin() {
-<<<<<<< HEAD
         let navbarLogin = document.querySelector('#navbar__login')
         if (navbarLogin.textContent === 'logout') {
             // 사용자 정보 안 보이게 처리
@@ -106,24 +99,6 @@ function NavBar() {
                 <NavItem>
                     <NavLink href='#' className='nav__link' onClick={goLogin}>
                         <h3 id='navbar__login'>login</h3>
-=======
-        let adFrame = document.querySelector('.ad')
-        adFrame.style.cssText = `margin-top: 10vh;
-  width: 90%;
-  height: 60%;
-  background-color:#E4E4E4;
-  transform:translateY(10vh) translateX(-10vw);
-  transition-duration:1s;
-  box-shadow: 0.6vh -0.3vh 5px #7c7c7c;`
-    }
-
-    return (
-        <>
-            <Nav vertical className='left'>
-                <NavItem>
-                    <NavLink href='#' className='nav__link' onClick={goLogin}>
-                        <h3>login</h3>
->>>>>>> a70fb51a2cf8c25a9284b8ad73d46bf9fb2631c1
                     </NavLink>
                 </NavItem>
                 <NavItem>
@@ -141,15 +116,10 @@ function NavBar() {
                             clickCategory('news')
                         }}
                     >
-<<<<<<< HEAD
                         <Link to='/news' className='nav__link'>
                             <h3>news</h3>
                             <div id='news'></div>
                         </Link>
-=======
-                        <h3>news</h3>
-                        <div id='news'></div>
->>>>>>> a70fb51a2cf8c25a9284b8ad73d46bf9fb2631c1
                     </NavLink>
                 </NavItem>
                 <NavItem>
@@ -160,15 +130,10 @@ function NavBar() {
                             clickCategory('works')
                         }}
                     >
-<<<<<<< HEAD
                       <Link to='/work' className='nav__link'>
                         <h3>works</h3>
                         <div id='works'></div>
                         </Link>
-=======
-                        <h3>works</h3>
-                        <div id='works'></div>
->>>>>>> a70fb51a2cf8c25a9284b8ad73d46bf9fb2631c1
                     </NavLink>
                 </NavItem>
                 <NavItem>
@@ -179,15 +144,10 @@ function NavBar() {
                             clickCategory('shop')
                         }}
                     >
-<<<<<<< HEAD
                         <Link to='/shop' className='nav__link'>
                             <h3>shop</h3>
                             <div id='shop'></div>
                         </Link>
-=======
-                        <h3>shop</h3>
-                        <div id='shop'></div>
->>>>>>> a70fb51a2cf8c25a9284b8ad73d46bf9fb2631c1
                     </NavLink>
                 </NavItem>
                 <NavItem>
@@ -197,11 +157,7 @@ function NavBar() {
                 </NavItem>
                 <Outlet></Outlet>
             </Nav>
-<<<<<<< HEAD
         </div>
-=======
-        </>
->>>>>>> a70fb51a2cf8c25a9284b8ad73d46bf9fb2631c1
     )
 }
 

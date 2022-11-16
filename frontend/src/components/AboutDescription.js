@@ -4,7 +4,8 @@ function AboutDescription() {
   return (
     <div className="description">
       <div className="description_text">
-        <h1>Logo</h1><br></br>
+        <img src={require('../images/logo.png')} alt="logo" class='logo'></img>
+        <br></br>
         <span>에드(ED)는 다양한 종이 포맷을 통해 새로운 경험을</span>
         <br></br>
         <span>할 수 있는 제품을 만들어내는 페이퍼 아이템 샵</span>

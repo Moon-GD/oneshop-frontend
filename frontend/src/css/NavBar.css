@@ -21,3 +21,15 @@
   font-size: 2vh;
   font-weight: 300;
 }
+
+.logo {
+  margin-left: -1.0vw;
+  margin-bottom: 2vh;
+  text-align: left;
+  width: 6vw;
+  height: 6vh;
+}
+
+.navbar-logo {
+  margin-left: -.2vw;
+}

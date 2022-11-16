@@ -9,7 +9,7 @@ import UserInfo from './components/UserInfo';
 import Shop from './pages/Shop'
 import News from './pages/News';
 import Works from './pages/Works'
-import CollectPicture from './pages/CollectPicture';
+import CollectPicture from './components/Backdrop';
 
 function App() {
   return (

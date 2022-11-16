@@ -5,7 +5,6 @@ import '../css/NavBar.css'
 function NavBar() {
     let loginText = "";
     let userInfo = document.querySelector("#userinfo-area");
-    
     if (userInfo == null) {
       loginText = "login";
     } else if (userInfo.textContent === "") {

@@ -1,6 +1,6 @@
 import '../css/common.css';
-import Ad from './Ad';
-import AboutDescription from './AboutDescription';
+import Ad from '../components/Ad';
+import AboutDescription from '../components/AboutDescription';
 
 function About() {
   return (

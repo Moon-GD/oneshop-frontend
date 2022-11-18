@@ -9,6 +9,7 @@ function ShopItems() {
                 <div className="image">
                 <img src={require('../images/10.jpg')} alt="작품"/>
                 </div>
+                <h2>21000원</h2>
               </div>
               <div className="item">
                 <div className="image">

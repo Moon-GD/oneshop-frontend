@@ -1,8 +1,20 @@
 import { Form, FormGroup, Label, Input, Button, CloseButton } from 'reactstrap'
 import Register from './Register'
 import '../css/Login.css'
+import {useState} from 'react';
 
 function Login() {
+    let [ID, setID] = useState('');
+    let [PW, setPW] = useState('');
+
+    function loginIDChange(e) {
+        setID(e.target.value);
+    }
+
+    function loginPWChange(e) {
+      setPW(e.target.value);
+    }
+
     // AD Frame 닫아주는 함수
     function goBack() {
         // blur 제거
@@ -56,6 +68,21 @@ function Login() {
     function doLogin() {
       let userName = "GD"; // 나중에 백엔드로 전달 받을 변수
       
+      const info = {
+        userId : ID,
+        password: PW
+      }
+
+      fetch("http://3.36.122.123:8080/api/login", {
+        method: "POST",
+        body: JSON.stringify(info),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }).then((response) => {
+        return response.json();
+      }).then((message)=>console.log('로그인 메시지', message))
+
       let navbar_login = document.querySelector("#navbar__login");
       navbar_login.textContent = "logout";
       let userInfo = document.querySelector("#userinfo-area");
@@ -71,44 +98,46 @@ function Login() {
     }
 
     return (
-        <>
-            <div id='login'>
-                <h1 className='login-title'>Login</h1>
-                <Form className='login-form'>
-                    <FormGroup>
-                        <Label for='exampleID'>ID</Label>
-                        <Input
-                            id='exampleID'
-                            name='email'
-                            placeholder='아이디'
-                            type='ID'
-                        />
-                    </FormGroup>
-                    <FormGroup>
-                        <Label for='examplePassword'>Password</Label>
-                        <Input
-                            id='examplePassword'
-                            name='password'
-                            placeholder='비밀번호'
-                            type='password'
-                        />
-                    </FormGroup>
-                </Form>
-                <div className='button-area'>
-                    <Button className='login-btn' onClick={doLogin}>
-                        Login
-                    </Button>
-                    <Button className='login-btn' onClick={registerPop}>
-                        Register
-                    </Button>
-                </div>
-            </div>
-            <Register></Register>
-            <div className='close-button' onClick={goBack}>
-                <CloseButton />
-            </div>
-        </>
-    )
+      <>
+        <div id="login">
+          <h1 className="login-title">Login</h1>
+          <Form className="login-form">
+            <FormGroup>
+              <Label for="exampleID">ID</Label>
+              <Input
+                onChange={loginIDChange}
+                id="exampleID"
+                name="email"
+                placeholder="아이디"
+                type="ID"
+              />
+            </FormGroup>
+            <FormGroup>
+              <Label for="examplePassword">Password</Label>
+              <Input
+                onChange={loginPWChange}
+                id="examplePassword"
+                name="password"
+                placeholder="비밀번호"
+                type="password"
+              />
+            </FormGroup>
+          </Form>
+          <div className="button-area">
+            <Button className="login-btn" onClick={doLogin}>
+              Login
+            </Button>
+            <Button className="login-btn" onClick={registerPop}>
+              Register
+            </Button>
+          </div>
+        </div>
+        <Register></Register>
+        <div className="close-button" onClick={goBack}>
+          <CloseButton />
+        </div>
+      </>
+    );
 }
 
 export default Login

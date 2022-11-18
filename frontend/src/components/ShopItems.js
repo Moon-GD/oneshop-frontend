@@ -7,7 +7,7 @@ function ShopItems() {
             <div className='items'>
               <div className="item">
                 <div className="image">
-                <img src={require('../images/10.jpg')} alt="작품"/>
+                  <img src={require('../images/10.jpg')} alt="작품"/>
                 </div>
                 <h2>21000원</h2>
               </div>
@@ -15,6 +15,14 @@ function ShopItems() {
                 <div className="image">
                 <img src={require('../images/7.jpg')} alt="작품"/>
                 </div>
+              </div>
+              <div className="item">
+                <div className="image">
+                  <img src={require('../images/1.jpg')} alt="작품"/></div>
+              </div>
+              <div className="item">
+                <div className="image">
+                  <img src={require('../images/1.jpg')} alt="작품"/></div>
               </div>
               <div className="item">
                 <div className="image">

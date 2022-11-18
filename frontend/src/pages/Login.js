@@ -80,8 +80,15 @@ function Login() {
           "Content-Type": "application/json",
         },
       }).then((response) => {
+        console.log(response)
+        if(response.status === 200) {
+          console.log('성공')
+        }
+        else {
+          console.log('실패')
+        }
         return response.json();
-      }).then((message)=>console.log('로그인 메시지', message))
+      }).then((message)=> console.log('로그인 메시지', message))
 
       let navbar_login = document.querySelector("#navbar__login");
       navbar_login.textContent = "logout";

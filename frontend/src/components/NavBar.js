@@ -71,17 +71,20 @@ function NavBar() {
             // navbar 글자 login으로 변경
             navbarLogin.textContent = 'login'
 
-            fetch('"http://3.36.122.123:8080/api/logout', {
-              method: "POST",
-              body: JSON.stringify(''),
+            fetch('http://3.36.122.123:8080/api/logout', {
+              method:'POST',
               headers: {
                 "Content-Type": "application/json",
+                Accept: "application/json",
               },
-            }).then((res) => {
-              return res.json();
-            }).then((message) => {
-              console.log('로그아웃 메시지', message);
+              body: JSON.stringify(""),
             })
+              .then((res) => {
+                return res.json();
+              })
+              .then((message) => {
+                console.log("로그아웃 메시지", message);
+              });
 
             return
         }

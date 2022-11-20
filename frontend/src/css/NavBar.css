@@ -30,6 +30,10 @@
   height: 6vh;
 }
 
+.logo-text span {
+  font-size: .3vw;
+}
+
 .navbar-logo {
   margin-left: -.2vw;
 }

@@ -121,7 +121,11 @@ function NavBar() {
     return (
       <div id="navbar">
         <Nav vertical className="left">
-          <img src={require("../images/logo.png")} alt="Logo" class="navbar-logo logo"></img>
+          <h2 class="logo-text">
+            ED<span>papershop</span>
+          </h2>
+
+          <br></br>
           <NavItem>
             <NavLink href="#" className="nav__link" onClick={goLogin}>
               <h3 id="navbar__login">{loginText}</h3>

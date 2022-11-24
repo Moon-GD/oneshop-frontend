@@ -1,6 +1,6 @@
 import '../css/Backdrop.css'
 
-function Modal(props) {
+function ModalShop(props) {
   function cancelHandler() {
     props.onCancel();
   }
@@ -22,4 +22,4 @@ function Modal(props) {
     )
 }
 
-export default Modal
+export default ModalShop

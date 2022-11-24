@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import Modal from './Modal'
+import ModalWork from './ModalWork'
 import Backdrop from './Backdrop'
 
 import '../css/WorkContent.css'
@@ -27,7 +27,7 @@ function WorkContent() {
             <h5>효창동 김옥희씨/Lee Juntae.HyoChangDong.2022</h5>
             {modlaIsOpen && <Backdrop onClose={closeModalHandler} />}
             {modlaIsOpen && 
-                <Modal
+                <ModalWork
                     onCancel={closeModalHandler}
                     onConfirm={closeModalHandler}
                 />

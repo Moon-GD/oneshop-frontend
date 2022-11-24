@@ -1,6 +1,7 @@
 import '../css/NewsList.css'
 
 function NewsList() {
+    
     return (
         <div className='containerNews'>
             <div className='items1'>

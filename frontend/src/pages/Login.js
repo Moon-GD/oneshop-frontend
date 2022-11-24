@@ -3,11 +3,13 @@ import Register from './Register'
 import '../css/Login.css'
 import {useState} from 'react';
 import {Alert} from 'reactstrap';
+import {useNavigate} from 'react-router-dom';
 
 function Login() {
     let [ID, setID] = useState('');
     let [PW, setPW] = useState('');
     let flag = false
+    const navigate = useNavigate();
 
     function loginIDChange(e) {
         setID(e.target.value);
@@ -117,6 +119,15 @@ function Login() {
           let userInfo = document.querySelector("#userinfo-area");
           userInfo.textContent = loginInfo.name + " 회원님 반갑습니다.";
           userInfo.style.display = "block";
+
+          // 장바구니로 가는 버튼 생성 후 삽입
+          let btnBasket = document.createElement('button')
+          btnBasket.className = 'btnBasket';
+          btnBasket.addEventListener('click', () => {
+            navigate("./shopBasket");
+          })
+          btnBasket.textContent = '장바구니'
+          userInfo.appendChild(btnBasket);
 
           // 페이드인 효과
           for (let i = 0; i < 100; i++) {

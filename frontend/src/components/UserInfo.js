@@ -4,7 +4,7 @@ function UserInfo() {
 
   return(
     <div id='userinfo-area'>
-      
+
     </div>
   )
 }

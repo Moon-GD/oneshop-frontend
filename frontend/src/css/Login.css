@@ -43,3 +43,14 @@
   height: 80%;
   margin:auto 0;
 }
+
+.btnBasket {
+  position: absolute;
+  right: 110%;
+  width: 60%;
+  background-color: #800040;
+  color: white;
+  border: 1px solid #800040;
+  border-radius: 4px;
+  cursor: pointer;
+}

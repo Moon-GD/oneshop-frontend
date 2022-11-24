@@ -83,10 +83,6 @@ function Register() {
         IDForm.value = '';
         IDForm.focus();
       }
-
-      return res.json();
-    }).then((message) => {
-      console.log(message);
     });
   }
 
@@ -94,7 +90,7 @@ function Register() {
     <>
       <section id="register">
         <Alert color="warning" id="register-alert">
-          이미 존재하는 계정입니다.
+          이미 존재하거나 올바르지 않은 계정입니다.
         </Alert>
         <h1 className="register-title">CREATE ACOUNT</h1>
         <Form>

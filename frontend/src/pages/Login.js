@@ -68,8 +68,6 @@ function Login() {
 
     // 사용자 로그인 처리 함수
     function doLogin() {
-      let userName = "GD"; // 나중에 백엔드로 전달 받을 변수
-      
       const info = {
         userId : ID,
         password: PW
@@ -87,16 +85,7 @@ function Login() {
           console.log('성공')
           let navbar_login = document.querySelector("#navbar__login");
           navbar_login.textContent = "logout";
-          let userInfo = document.querySelector("#userinfo-area");
-          userInfo.textContent = userName + "회원님 반갑습니다.";
           goBack();
-          userInfo.style.display = "block";
-
-          for (let i = 0; i < 100; i++) {
-            setTimeout(() => {
-              userInfo.style.opacity = 0.01 * i;
-            }, i * 10);
-          }
         }
         // 로그인 실패 하는 경우
         else {
@@ -123,7 +112,21 @@ function Login() {
           return
         }
         return response.json();
-      }).then((message)=> console.log(message))
+      }).then((loginInfo)=>  {
+        if(loginInfo) {
+          let userInfo = document.querySelector("#userinfo-area");
+          userInfo.textContent = loginInfo.name + " 회원님 반갑습니다.";
+          userInfo.style.display = "block";
+
+          // 페이드인 효과
+          for (let i = 0; i < 100; i++) {
+            setTimeout(() => {
+              userInfo.style.opacity = 0.01 * i;
+            }, i * 10);
+          }
+        }
+      })
+      
     }
 
     return (

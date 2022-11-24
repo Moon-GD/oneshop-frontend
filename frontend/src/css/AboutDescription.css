@@ -11,6 +11,10 @@
   font-size: 0.8vw;
 }
 
+.about-logo {
+  cursor: pointer;
+}
+
 .about-logo span {
   font-size: 0.3vw;
 }

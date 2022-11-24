@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 export default function ShopBasket () {
   let navigate = useNavigate();
 
+  let goHome = () => {
+    navigate("../");
+  }
+
   let goShop = () => {
     navigate("../shop");
   }
@@ -11,7 +15,9 @@ export default function ShopBasket () {
   return (
     <div class="main">
       <section class="basketList">
-        <h1>
+        <h1 id="shopBasket-logo" onClick={() => {
+          goHome();
+        }}>
           ED<span>papershop</span>
         </h1>
         <hr></hr>

@@ -4,6 +4,10 @@
   padding: 1vh 0;
 }
 
+#shopBasket-logo {
+  cursor: pointer;
+}
+
 h1 span {
   font-size: 0.3vw;
 }
@@ -57,7 +61,7 @@ hr {
 /* 최종 계산 해주는 row */
 .calc-row {
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 

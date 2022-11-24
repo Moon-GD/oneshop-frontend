@@ -6,6 +6,7 @@
 }
 
 .descriptionShop_text {
+  cursor: pointer;
   margin-top: 30vh;
   font-weight: 300;
   font-size: .9vw;

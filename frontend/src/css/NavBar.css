@@ -5,6 +5,10 @@
   justify-content: center;
 }
 
+.logo-text {
+  cursor: pointer;
+}
+
 .nav__link {
   
   color:black;

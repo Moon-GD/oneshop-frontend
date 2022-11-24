@@ -1,8 +1,14 @@
 import { Nav, NavItem, NavLink } from 'reactstrap'
-import { Link, Outlet } from 'react-router-dom'
+import { Link, Outlet, useNavigate } from 'react-router-dom'
 import '../css/NavBar.css'
 
 function NavBar() {
+    let navigate = useNavigate();
+
+    let redirect = () => {
+      navigate('./');
+    }
+
     let loginText = "";
     let userInfo = document.querySelector("#userinfo-area");
     if (userInfo == null) {
@@ -121,7 +127,9 @@ function NavBar() {
     return (
       <div id="navbar">
         <Nav vertical className="left">
-          <h2 class="logo-text">
+          <h2 class="logo-text" onClick={() => {
+            redirect();
+          }}>
             ED<span>papershop</span>
           </h2>
 

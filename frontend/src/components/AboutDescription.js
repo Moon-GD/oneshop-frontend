@@ -1,10 +1,19 @@
 import '../css/AboutDescription.css'
+import { useNavigate } from 'react-router-dom';
+
 
 function AboutDescription() {
+  let navigate = useNavigate()
+  function goHome() {
+    navigate('../');
+  }
+
   return (
     <div className="description">
       <div className="description_text">
-        <h2 class="about-logo">
+        <h2 class="about-logo" onClick={() => {
+          goHome();
+        }}>
           ED<span>papershop</span>
         </h2>
         <br></br>

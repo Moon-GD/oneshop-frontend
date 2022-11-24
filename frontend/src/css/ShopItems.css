@@ -1,5 +1,5 @@
 .containerShop {
-  height: 70vh;
+  height: 30vh;
   margin-right: 5vw;
   margin-top: 25vh;
   margin-left: -5vw;
@@ -12,6 +12,7 @@
   padding: 40px 0px;
   white-space: nowrap;
   overflow-x: auto;
+  height: 20vw;
 }
 
 .containerShop .items::-webkit-scrollbar{
@@ -35,7 +36,7 @@
 .containerShop .items .item {
   flex: 0 0 auto;
   width: 15vw;
-  height: 15vw;
+  height: 88%;
   margin: 4px 0px 0px 0px;
   border: 3px solid #fff;
   border-radius: 10px;
@@ -74,4 +75,16 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: 90px;
+}
+
+.item-description {
+  flex-direction: column;
+}
+
+/* 상품 설명 박스 */
+#item-explain-area {  
+  display: none;
+  height: 45vh;
+  margin: 1vh 0 0 2%;
+  width: 98%;
 }

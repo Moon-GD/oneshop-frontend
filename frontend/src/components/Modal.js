@@ -16,8 +16,8 @@ function Modal(props) {
                 </div>
             </div>
             <p>Are you sure?</p>
-            <button className="btn btn--alt" onClick={cancelHandler}>Cancel</button>
-            <button className="btn" onClick={confirmHandler}>Purchase</button>
+            <button className="btn btn--alt" id="btn-cancel" onClick={cancelHandler}>Cancel</button>
+            <button className="btn" id="btn-purchase" onClick={confirmHandler}>Purchase</button>
         </div>
     )
 }

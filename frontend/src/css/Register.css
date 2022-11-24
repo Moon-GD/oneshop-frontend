@@ -14,3 +14,14 @@
 .button-register {
   width: 100%;
 }
+
+#register-alert {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  margin: 0 auto;
+  width: 90%;
+  left: 5%;
+  top: 65%;
+  text-align: center;
+}

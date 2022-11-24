@@ -27,3 +27,19 @@
   top: 2%;
   right: 2%; 
 }
+
+#loginModal {
+  display: none;
+  position: absolute;
+  width: 100%;
+  height: 15%;
+  text-align: center;
+  top: 50%;
+  font-size: 2vh;
+}
+
+#nestedModal {
+  width: 100%;
+  height: 80%;
+  margin:auto 0;
+}

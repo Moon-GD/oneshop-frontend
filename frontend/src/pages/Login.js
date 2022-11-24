@@ -2,10 +2,12 @@ import { Form, FormGroup, Label, Input, Button, CloseButton } from 'reactstrap'
 import Register from './Register'
 import '../css/Login.css'
 import {useState} from 'react';
+import {Alert} from 'reactstrap';
 
 function Login() {
     let [ID, setID] = useState('');
     let [PW, setPW] = useState('');
+    let flag = false
 
     function loginIDChange(e) {
         setID(e.target.value);
@@ -83,30 +85,55 @@ function Login() {
         console.log(response)
         if(response.status === 200) {
           console.log('성공')
+          let navbar_login = document.querySelector("#navbar__login");
+          navbar_login.textContent = "logout";
+          let userInfo = document.querySelector("#userinfo-area");
+          userInfo.textContent = userName + "회원님 반갑습니다.";
+          goBack();
+          userInfo.style.display = "block";
+
+          for (let i = 0; i < 100; i++) {
+            setTimeout(() => {
+              userInfo.style.opacity = 0.01 * i;
+            }, i * 10);
+          }
         }
+        // 로그인 실패 하는 경우
         else {
+          if(flag) {
+            return
+          }
+          
+          flag = true
+
           console.log('실패')
+          let loginModal = document.querySelector("#loginModal");
+          loginModal.style.display = 'block';
+          for(let i = 1;i<=100;i++) {
+            setTimeout(() => {
+              loginModal.style.opacity = 1 - 0.01 * i;
+            }, 10 * i);
+          }
+
+          setTimeout(() => {
+            loginModal.style.display = "none";  
+            flag = false
+          }, 1200)
+          
+          return
         }
         return response.json();
-      }).then((message)=> console.log('로그인 메시지', message))
-
-      let navbar_login = document.querySelector("#navbar__login");
-      navbar_login.textContent = "logout";
-      let userInfo = document.querySelector("#userinfo-area");
-      userInfo.textContent = userName + "회원님 반갑습니다.";
-      goBack();
-      userInfo.style.display = "block";
-
-      for (let i = 0; i < 100; i++) {
-        setTimeout(() => {
-          userInfo.style.opacity = 0.01 * i;
-        }, i * 10);
-      }
+      }).then((message)=> console.log(message))
     }
 
     return (
       <>
         <div id="login">
+          <Alert color="warning" id="loginModal">
+            <Alert color="light" id="nestedModal">
+              로그인에 실패하였습니다.
+            </Alert>
+          </Alert>
           <h1 className="login-title">Login</h1>
           <Form className="login-form">
             <FormGroup>

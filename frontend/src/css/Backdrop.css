@@ -6,7 +6,14 @@
   background-color: #800040;
   color: white;
   border: 1px solid #800040;
-  margin: 0 1rem;
+}
+
+#btn-purchase {
+  margin-left: .5rem;
+}
+
+#btn-cancel {
+  margin-right: 0.5rem;
 }
 
 .btn:hover {

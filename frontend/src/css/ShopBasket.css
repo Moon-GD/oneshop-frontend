@@ -30,33 +30,13 @@ hr {
 
 .basket-row h4 {
   width: 11%;
-  margin-right: -2.2%;
+  margin-right: -2.8%;
   text-align: center;
-}
-
-/* 최종 계산 해주는 row */
-.calc-row {
-  display: flex;
-  justify-content: end;
-  align-items: center;
-}
-
-.calc-row span {
-  margin: 0 0.5vw;
-  font-size: 1em;
 }
 
 .basket-item-info {
   height: 10vh;
   width: 10vh;
-}
-
-.basket-item-price {
-  
-}
-
-.basket-item-shipping {
-  
 }
 
 #first-row {
@@ -72,4 +52,56 @@ hr {
 
 .first-row h4 {
   display: inline;
+}
+
+/* 최종 계산 해주는 row */
+.calc-row {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+
+.calc-row span {
+  margin: 0 0.5vw;
+  font-size: 1em;
+}
+
+.button-row {
+  margin-top: 3vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.button-row button {
+  width: 12vw;
+  height: 8vh;
+  border: none;
+  outline:none;
+  border-radius: 5px;
+  font-size: 2em;
+}
+
+.button-row button#btn-go-shop {
+  background-color: #800040;
+  color:#fafafa;
+  font-weight: 700;
+}
+
+.button-row button#btn-go-shop:hover {
+  color: #800040;
+  background-color:#fafafa;
+  font-weight: 700;
+}
+
+.button-row button#btn-go-purchase {
+  color: #800040;
+  background-color:#fafafa;
+  font-weight: 700;
+}
+
+.button-row button#btn-go-purchase:hover {
+  background-color: #800040;
+  color:#fafafa;
+  font-weight: 700;
 }

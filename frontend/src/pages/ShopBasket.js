@@ -1,6 +1,13 @@
 import '../css/ShopBasket.css'
+import { useNavigate } from 'react-router-dom';
 
 export default function ShopBasket () {
+  let navigate = useNavigate();
+
+  let goShop = () => {
+    navigate("../shop");
+  }
+
   return (
     <div class="main">
       <section class="basketList">
@@ -16,21 +23,40 @@ export default function ShopBasket () {
           <h4>배송비</h4>
         </div>
         <div class="basket-row">
-          <img src={require("../images/1.jpg")} class="basket-item-info"></img>
+          <img
+            src={require("../images/1.jpg")}
+            class="basket-item-info"
+            alt="상품 이미지"
+          ></img>
           <h4>1개</h4>
           <h4 basket-item-price>20,000원</h4>
           <h4>3,000원</h4>
         </div>
         <div class="basket-row">
-          <img src={require("../images/10.jpg")} class="basket-item-info"></img>
+          <img
+            src={require("../images/10.jpg")}
+            class="basket-item-info"
+            alt="상품 이미지"
+          ></img>
           <h4>2개</h4>
           <h4>2,000원</h4>
           <h4>5,000원</h4>
         </div>
         <div class="calc-row">
           <span>총 금액 : 22,000원</span>
-          <span>배송비 : 5,000원</span>
-          <span>주문 금액 : 27,000원</span>
+          <span>배송비 : 8,000원</span>
+          <span>주문 금액 : 30,000원</span>
+        </div>
+        <div class="button-row">
+          <button
+            id="btn-go-shop"
+            onClick={() => {
+              goShop();
+            }}
+          >
+            쇼핑하기
+          </button>
+          <button id="btn-go-purchase">구매하기</button>
         </div>
       </section>
     </div>

@@ -21,6 +21,7 @@ hr {
 
 /* 장바구니 항목 한 줄 */
 .basket-row {
+  position: relative;
   border-bottom: 0.2px solid #dfdfe0;
   padding: 1% 0;
   display: flex;
@@ -108,4 +109,12 @@ hr {
   background-color: #800040;
   color:#fafafa;
   font-weight: 700;
+}
+
+.close {
+  position: absolute;
+  top: .5vw;
+  right: 1vw;
+  font-size: 1.5em;
+  cursor: pointer;
 }

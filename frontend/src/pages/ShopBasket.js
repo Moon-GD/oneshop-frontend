@@ -15,9 +15,12 @@ export default function ShopBasket () {
   return (
     <div class="main">
       <section class="basketList">
-        <h1 id="shopBasket-logo" onClick={() => {
-          goHome();
-        }}>
+        <h1
+          id="shopBasket-logo"
+          onClick={() => {
+            goHome();
+          }}
+        >
           ED<span>papershop</span>
         </h1>
         <hr></hr>
@@ -37,6 +40,7 @@ export default function ShopBasket () {
           <h4>1개</h4>
           <h4 basket-item-price>20,000원</h4>
           <h4>3,000원</h4>
+          <span class="close">&times;</span>
         </div>
         <div class="basket-row">
           <img
@@ -47,6 +51,7 @@ export default function ShopBasket () {
           <h4>2개</h4>
           <h4>2,000원</h4>
           <h4>5,000원</h4>
+          <span class="close">&times;</span>
         </div>
         <div class="calc-row">
           <span>총 금액 : 22,000원</span>

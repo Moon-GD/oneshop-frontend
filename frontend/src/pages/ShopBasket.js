@@ -1,7 +1,39 @@
 import '../css/ShopBasket.css'
 import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 
 export default function ShopBasket () {
+  let [counts, setCounts] = useState([1, 2]);
+  let [prices, setPrices] = useState([5000, 10000]);
+  let [shippings, setShippings] = useState([2000, 1000])
+  
+  let [sum, setSum] = useState(0);
+  let [itemsSum, setItemsSum] = useState(0);
+  let [shipSum, setShippingSum] = useState(0);
+
+  // Execute After Page Loaded
+  useEffect(() => {
+    console.log(shippings.length)
+    if(shippings.length === 0) {console.log('hi'); return ;}
+    let itemsPrices = 0;
+    let deliveryPrices = 0;
+
+    for (let i = 0; i < counts.length; i++) {
+      itemsPrices += counts[i] * prices[i];
+    }
+
+    // 배열 길이가 0일 때도 예외처리 해주기!!
+    // reduce 함수는 배열의 길이가 0이면 error
+    deliveryPrices += shippings.reduce(function add(deliveryPrices, curValue) {
+      return deliveryPrices + curValue;
+    });
+
+    // state 반영 (총 금액, 배송비, 주문 금액)
+    setItemsSum(itemsPrices);
+    setShippingSum(deliveryPrices);
+    setSum(itemsPrices + deliveryPrices);
+  }, [])
+
   let navigate = useNavigate();
 
   let goHome = () => {
@@ -10,6 +42,12 @@ export default function ShopBasket () {
 
   let goShop = () => {
     navigate("../shop");
+  }
+
+  // Close Button Function
+  let deleteRow = (event) => {
+    let parentDom = event.currentTarget.parentNode;
+    parentDom.remove();
   }
 
   return (
@@ -37,10 +75,17 @@ export default function ShopBasket () {
             class="basket-item-info"
             alt="상품 이미지"
           ></img>
-          <h4>1개</h4>
-          <h4 basket-item-price>20,000원</h4>
-          <h4>3,000원</h4>
-          <span class="close">&times;</span>
+          <h4>{counts[0]}개</h4>
+          <h4 basket-item-price>{prices[0]}원</h4>
+          <h4>{shippings[0]}원</h4>
+          <span
+            class="close"
+            onClick={(event) => {
+              deleteRow(event);
+            }}
+          >
+            &times;
+          </span>
         </div>
         <div class="basket-row">
           <img
@@ -48,15 +93,22 @@ export default function ShopBasket () {
             class="basket-item-info"
             alt="상품 이미지"
           ></img>
-          <h4>2개</h4>
-          <h4>2,000원</h4>
-          <h4>5,000원</h4>
-          <span class="close">&times;</span>
+          <h4>{counts[1]}개</h4>
+          <h4>{prices[1]}원</h4>
+          <h4>{shippings[1]}원</h4>
+          <span
+            class="close"
+            onClick={(event) => {
+              deleteRow(event);
+            }}
+          >
+            &times;
+          </span>
         </div>
         <div class="calc-row">
-          <span>총 금액 : 22,000원</span>
-          <span>배송비 : 8,000원</span>
-          <span>주문 금액 : 30,000원</span>
+          <span>총 금액 : {itemsSum}원</span>
+          <span>배송비 : {shipSum}원</span>
+          <span>주문 금액 : {sum}원</span>
         </div>
         <div class="button-row">
           <button

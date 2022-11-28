@@ -57,6 +57,7 @@ function Register() {
             loginForm.style.opacity = 0.01 * i;
           }, i * 10);
         }
+        return res.json()
       }
       // 실패한 경우
       else {
@@ -82,7 +83,10 @@ function Register() {
         let IDForm = document.querySelector("#formID");
         IDForm.value = '';
         IDForm.focus();
+        return res.json()
       }
+    }).then((data)=>{
+      console.log(data)
     });
   }
 

@@ -1,16 +1,50 @@
-import '../css/common.css';
-import UserInfo from '../components/UserInfo';
-import ShopDescription from '../components/ShopDescription';
-import ShopItems from '../components/ShopItems';
+import { useState, useEffect } from 'react'
+
+import '../css/common.css'
+import UserInfo from '../components/UserInfo'
+import ShopDescription from '../components/ShopDescription'
+import ShopItems from '../components/ShopItems'
 
 function Shop() {
-  return (
-    <section className="main">
-      <UserInfo></UserInfo>
-      <ShopDescription></ShopDescription>
-      <ShopItems></ShopItems>
-    </section>
-  );
+    const [isLoading, setIsLoading] = useState(true)
+    const [loadingItems, setLoadedMeetups] = useState([])
+
+    useEffect(() => {
+        setIsLoading(true)
+        fetch("http://3.36.122.123:8080/api/items", {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((response) => {
+              console.log(response)
+                return response.json()
+            })
+            .then((data) => {
+                console.log('하하하하하')
+                console.log(data)
+
+                setIsLoading(false)
+                // setLoadedMeetups(items)
+            })
+    }, [])
+
+    if (isLoading) {
+        return (
+            <section>
+                <p>Loading...</p>
+            </section>
+        )
+    }
+
+    return (
+        <section className='main'>
+            <UserInfo></UserInfo>
+            <ShopDescription></ShopDescription>
+            <ShopItems></ShopItems>
+        </section>
+    )
 }
 
-export default Shop;
+export default Shop

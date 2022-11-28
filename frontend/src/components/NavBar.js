@@ -18,7 +18,7 @@ function NavBar() {
     } else {
       loginText = "logout";
     }
-
+    
     // true : 자식 요소 렌더링 중
     // flase : 자식 요소 안 보이는 상태
     let newsFlag = false,

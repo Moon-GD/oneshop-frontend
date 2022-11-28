@@ -9,7 +9,7 @@ function News() {
     <section className="main">
       <UserInfo></UserInfo>
       <NewsYears></NewsYears>
-      <NewsList></NewsList>
+      <NewsList/>
     </section>
   );
 }

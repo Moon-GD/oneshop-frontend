@@ -1,83 +1,23 @@
+import ImageGallery from 'react-image-gallery';
 import '../css/NewsList.css'
 
+const images = [
+  {
+    original: 'https://picsum.photos/id/1018/1000/600/',
+    thumbnail: 'https://picsum.photos/id/1018/250/150/',
+  },
+  {
+    original: 'https://picsum.photos/id/1015/1000/600/',
+    thumbnail: 'https://picsum.photos/id/1015/250/150/',
+  },
+  {
+    original: 'https://picsum.photos/id/1019/1000/600/',
+    thumbnail: 'https://picsum.photos/id/1019/250/150/',
+  },
+];
+
 function NewsList() {
-    
-    return (
-        <div className='containerNews'>
-            <div className='items1'>
-                <div className='string'>
-                    EDxMartin<br></br>
-                    parr.art<br></br>
-                    space.<br></br>
-                    2023.0406<br></br>
-                </div>
-                <div className='item'>
-                    <div className='image'>
-                    <img src={require('../images/10.jpg')} alt="작품"/>
-                    </div>
-                </div>
-                <div className='item'>
-                    <div className='image'>
-                    <img src={require('../images/7.jpg')} alt="작품"/>
-                    </div>
-                </div>
-                <div className='item'>
-                    <div className='image'>
-                    <img src={require('../images/1.jpg')} alt="작품"/>
-                    </div>
-                </div>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-            </div>
-            <div className='items2'>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-                <div className='string'>
-                    New prod-<br></br>
-                    uct with<br></br>
-                    Jang-Hyeok<br></br>
-                    Jun.<br></br>
-                </div>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-            </div>
-            <div className='items3'>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-                <div className='item'>
-                    <div className='image'></div>
-                </div>
-            </div>
-        </div>
-    )
+    return <ImageGallery items={images} />;
 }
 
 export default NewsList

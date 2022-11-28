@@ -1,5 +1,5 @@
 .containerShop {
-  height: 98vh;
+  height: 70vh;
   margin-right: 5vw;
   margin-top: 25vh;
   margin-left: -5vw;
@@ -15,7 +15,7 @@
 }
 
 .containerShop .items::-webkit-scrollbar{
-  height: 5px;
+  height: 10px;
 }
 .containerShop .items::-webkit-scrollbar-thumb{
   border-radius: 5px;

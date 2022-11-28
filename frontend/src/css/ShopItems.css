@@ -1,5 +1,5 @@
 .containerShop {
-  height: 30vh;
+  height: 70vh;
   margin-right: 5vw;
   margin-top: 25vh;
   margin-left: -5vw;
@@ -12,11 +12,11 @@
   padding: 40px 0px;
   white-space: nowrap;
   overflow-x: auto;
-  height: 20vw;
+  height: 21vw;
 }
 
 .containerShop .items::-webkit-scrollbar{
-  height: 5px;
+  height: 10px;
 }
 .containerShop .items::-webkit-scrollbar-thumb{
   border-radius: 5px;
@@ -84,7 +84,7 @@
 /* 상품 설명 박스 */
 #item-explain-area {  
   display: none;
-  height: 45vh;
+  height: 30vh;
   margin: 1vh 0 0 2%;
   width: 98%;
 }

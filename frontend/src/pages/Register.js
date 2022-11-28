@@ -83,7 +83,7 @@ function Register() {
         IDForm.value = '';
         IDForm.focus();
       }
-    });
+    })
   }
 
   return (

@@ -1,20 +1,27 @@
 import '../css/ShopBasket.css'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { ReactDOM } from 'react-dom/client';
 
 export default function ShopBasket () {
-  let [counts, setCounts] = useState([1, 2]);
+  let [counts, setCounts] = useState([1, 3]);
   let [prices, setPrices] = useState([5000, 10000]);
-  let [shippings, setShippings] = useState([2000, 1000])
-  
+  let [shippings, setShippings] = useState([2000, 1000]);
+
   let [sum, setSum] = useState(0);
   let [itemsSum, setItemsSum] = useState(0);
   let [shipSum, setShippingSum] = useState(0);
 
-  // Execute After Page Loaded
-  useEffect(() => {
-    console.log(shippings.length)
-    if(shippings.length === 0) {console.log('hi'); return ;}
+  function updateFinalRow() {
+    if (shippings.length === 0) {
+      setShippingSum(0)
+      setItemsSum(0)
+      setSum([0])
+
+      updateFinalRow()
+
+      return ;
+    }
     let itemsPrices = 0;
     let deliveryPrices = 0;
 
@@ -32,23 +39,109 @@ export default function ShopBasket () {
     setItemsSum(itemsPrices);
     setShippingSum(deliveryPrices);
     setSum(itemsPrices + deliveryPrices);
-  }, [])
+  }
+
+  // Execute After Page Loaded
+  useEffect(() => {
+    updateFinalRow();
+  }, []);
 
   let navigate = useNavigate();
 
   let goHome = () => {
     navigate("../");
-  }
+  };
 
   let goShop = () => {
     navigate("../shop");
-  }
+  };
 
   // Close Button Function
   let deleteRow = (event) => {
+    let basketRows = document.querySelectorAll('.basket-row');
     let parentDom = event.currentTarget.parentNode;
+
+    for(let i = 0;i<basketRows.length;i++) {
+      if(basketRows[i] === parentDom) {
+        let copyCounts = counts
+        let copyPrices = prices
+        let copyShippings = shippings
+
+        // delete corresponding items
+        copyCounts.splice(i, 1)
+        copyPrices.splice(i, 1)
+        copyShippings.splice(i, 1)
+
+        // set State
+        setCounts(copyCounts)
+        console.log(counts)
+        setPrices(copyPrices)
+        setShippings(copyShippings)
+
+        // update final row
+        updateFinalRow();
+
+        // delete corresponging row
+        parentDom.remove();
+
+        break
+      }
+    }
+
     parentDom.remove();
-  }
+  };
+
+  // Minus items Count
+  let minusCounts = (event) => {
+    let All_H4 = document.querySelectorAll("h4.counts");
+    let curCount = event.currentTarget.nextSibling.textContent;
+    curCount = Number(curCount);
+
+    // 개수가 1 이하인 경우
+    if (curCount <= 1) {
+      return;
+    } else {
+      let parentDom = event.currentTarget.parentNode;
+      let i;
+      for (i = 0; i < All_H4.length; i++) {
+        if (All_H4[i] === parentDom) {
+          event.currentTarget.nextSibling.textContent = curCount - 1;
+          let copyCount = counts;
+          setCounts(copyCount);
+          copyCount[i] = curCount - 1;
+          updateFinalRow();
+          break;
+        }
+      }
+    }
+  };
+
+  // Plus items Count
+  let plusCounts = (event) => {
+    let All_H4 = document.querySelectorAll("h4.counts");
+    let curCount = event.currentTarget.previousSibling.previousSibling.textContent
+    console.log(curCount)
+    curCount = Number(curCount);
+    console.log(curCount, 'count')
+    // 개수가 10 이상인 경우
+    if (curCount >= 10) {
+      return;
+    } else {
+      let parentDom = event.currentTarget.parentNode;
+      let i;
+      for (i = 0; i < All_H4.length; i++) {
+        if (All_H4[i] === parentDom) {
+          event.currentTarget.previousSibling.previousSibling.textContent = curCount + 1;
+          let copyCount = counts;
+          setCounts(copyCount);
+          copyCount[i] = curCount + 1;
+          updateFinalRow();
+
+          break;
+        }
+      }
+    }
+  };
 
   return (
     <div class="main">
@@ -75,7 +168,18 @@ export default function ShopBasket () {
             class="basket-item-info"
             alt="상품 이미지"
           ></img>
-          <h4>{counts[0]}개</h4>
+          <h4 className="counts">
+            <button
+              className="countButton"
+              onClick={(event) => minusCounts(event)}
+            >
+              <div>-</div>
+            </button>
+            {counts[0]}개
+            <button className="countButton" onClick={(event) =>  plusCounts(event)}>
+              +
+            </button>
+          </h4>
           <h4 basket-item-price>{prices[0]}원</h4>
           <h4>{shippings[0]}원</h4>
           <span
@@ -93,7 +197,15 @@ export default function ShopBasket () {
             class="basket-item-info"
             alt="상품 이미지"
           ></img>
-          <h4>{counts[1]}개</h4>
+          <h4 className="counts">
+            <button
+              className="countButton"
+              onClick={(event) => minusCounts(event)}
+            >
+              -
+            </button>
+            {counts[1]}개<button className="countButton" onClick={(event) => {plusCounts(event)}}>+</button>
+          </h4>
           <h4>{prices[1]}원</h4>
           <h4>{shippings[1]}원</h4>
           <span

@@ -11,17 +11,22 @@ import News from './pages/News';
 import Works from './pages/Works'
 import CollectPicture from './components/Backdrop';
 import ShopBasket from './pages/ShopBasket';
+import Admin from './pages/Admin';
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/about" element={<About></About>}></Route>
-        <Route path='/news' element={<News></News>}></Route>
-        <Route path='/shop' element={<Shop></Shop>}></Route>
-        <Route path='/work' element={<Works></Works>}></Route>
-        <Route path='/shopBasket' element = {<ShopBasket></ShopBasket>}></Route>
-        <Route path='/collectPicture' element={<CollectPicture></CollectPicture>}></Route>
+        <Route path="/news" element={<News></News>}></Route>
+        <Route path="/shop" element={<Shop></Shop>}></Route>
+        <Route path="/work" element={<Works></Works>}></Route>
+        <Route path="/admin" element={<Admin></Admin>}></Route>
+        <Route path="/shopBasket" element={<ShopBasket></ShopBasket>}></Route>
+        <Route
+          path="/collectPicture"
+          element={<CollectPicture></CollectPicture>}
+        ></Route>
         <Route index exact path="/" element={<MainFrame></MainFrame>}></Route>
       </Routes>
       <UserInfo></UserInfo>

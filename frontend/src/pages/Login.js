@@ -120,20 +120,40 @@ function Login() {
           userInfo.textContent = loginInfo.name + " 회원님 반갑습니다.";
           userInfo.style.display = "block";
 
-          // 장바구니로 가는 버튼 생성 후 삽입
-          let btnBasket = document.createElement('button')
-          btnBasket.className = 'btnBasket';
-          btnBasket.addEventListener('click', () => {
-            navigate("./shopBasket");
-          })
-          btnBasket.textContent = '장바구니'
-          userInfo.appendChild(btnBasket);
+          // 관리자 계정
+          if(loginInfo.name === "이준태" && loginInfo.userId === "__admin__") {
+            // 관리자 페이지로 가는 버튼 생성 후 삽입
+            let btnAdmin = document.createElement("button");
+            btnAdmin.className = "btnBasket";
+            btnAdmin.addEventListener("click", () => {
+              navigate("./admin");
+            });
+            btnAdmin.textContent = "관리자";
+            userInfo.appendChild(btnAdmin);
 
-          // 페이드인 효과
-          for (let i = 0; i < 100; i++) {
-            setTimeout(() => {
-              userInfo.style.opacity = 0.01 * i;
-            }, i * 10);
+            // 페이드인 효과
+            for (let i = 0; i < 100; i++) {
+              setTimeout(() => {
+                userInfo.style.opacity = 0.01 * i;
+              }, i * 10);
+            }
+          }
+          else {
+            // 장바구니로 가는 버튼 생성 후 삽입
+            let btnBasket = document.createElement("button");
+            btnBasket.className = "btnBasket";
+            btnBasket.addEventListener("click", () => {
+              navigate("./shopBasket");
+            });
+            btnBasket.textContent = "장바구니";
+            userInfo.appendChild(btnBasket);
+
+            // 페이드인 효과
+            for (let i = 0; i < 100; i++) {
+              setTimeout(() => {
+                userInfo.style.opacity = 0.01 * i;
+              }, i * 10);
+            }
           }
         }
       })

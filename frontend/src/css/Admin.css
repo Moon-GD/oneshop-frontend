@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Lao+Looped&display=swap');
+
+/* admin main */
+#adminMain {
+  opacity: 0;
+  width: 95vw;
+  height: 90vh;
+  margin: 8vh auto 0;
+  box-shadow: 0px 0px 1vw;
+  font-family: 'Noto Sans Lao Looped';
+}
+
+h3.admin-h3 {
+  display: block;
+  margin: 3vh 0;
+  font-weight: 700;
+  color:#9BA6B2;
+  font-style: oblique;
+}
+
+.btn_admin_submit {
+  border:none;
+  background-color: #800040;
+  color:white;
+  font-weight: 700;
+  border-radius: 0.5vh;
+}
+
+#btn_admin_go_home {
+  margin-top: 3vh;
+  margin-left: 48%;
+}

@@ -4,7 +4,7 @@ import Backdrop from './Backdrop'
 
 import '../css/WorkContent.css'
 
-function WorkContent() {
+function WorkContent(props) {
     const [modlaIsOpen, setModalIsOpen] = useState(false)
 
     function deleteHandler() {
@@ -16,24 +16,31 @@ function WorkContent() {
     }
 
     return (
-        <div className='containerWork'>
-            <div className='items'>
-                <div className='item'>
-                    <div className='image' onClick={deleteHandler}>
-                        <img src={require('../images/10.jpg')} alt='작품' />
-                    </div>
-                </div>
+      <div className="containerWork">
+        <div className="items">
+          <div className="item">
+            <div className="image" onClick={deleteHandler}>
+              <img
+                src={
+                  "http://3.36.122.123:8080/api/image/" +
+                  props.works[0].images[0]
+                }
+                alt="작품"
+              />
             </div>
-            <h5>효창동 김옥희씨/Lee Juntae.HyoChangDong.2022</h5>
-            {modlaIsOpen && <Backdrop onClose={closeModalHandler} />}
-            {modlaIsOpen && 
-                <ModalWork
-                    onCancel={closeModalHandler}
-                    onConfirm={closeModalHandler}
-                />
-            }
+          </div>
         </div>
-    )
+        <h5>효창동 김옥희씨/Lee Juntae.HyoChangDong.2022</h5>
+        {modlaIsOpen && <Backdrop onClose={closeModalHandler} />}
+        {modlaIsOpen && (
+          <ModalWork
+            imageLink={props.works[0]}
+            onCancel={closeModalHandler}
+            onConfirm={closeModalHandler}
+          />
+        )}
+      </div>
+    );
 }
 
 export default WorkContent

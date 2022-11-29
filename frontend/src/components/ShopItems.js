@@ -10,7 +10,6 @@ function ShopItems() {
     let explainText = document.querySelector("#item-explain");
     let items = document.querySelectorAll(".item");
     items.forEach((item) => {
-      console.log(item.childNodes[1])
      item.addEventListener('mouseover', () => {
       explainBox.style.display = 'block'
       explainTitle.textContent = item.childNodes[1].textContent

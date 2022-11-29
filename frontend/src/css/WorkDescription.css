@@ -14,3 +14,14 @@
 .descriptionWork h5{
   font-size: 1.3em;
 }
+
+#authorSelect {
+  position: absolute;
+  left: 10vw;
+  top: 10vh;
+}
+
+.author-h3 {
+  font-size: 3vh;
+  margin-bottom: 2vh;
+}

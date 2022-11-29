@@ -18,15 +18,10 @@ function Shop() {
             },
         })
             .then((response) => {
-              console.log(response)
                 return response.json()
             })
             .then((data) => {
-                console.log('하하하하하')
-                console.log(data)
-
                 setIsLoading(false)
-                // setLoadedMeetups(items)
             })
     }, [])
 

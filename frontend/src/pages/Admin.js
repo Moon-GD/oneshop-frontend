@@ -28,6 +28,7 @@ export default function Admin() {
   // Fade In Effect
   useEffect(() => {
     let adminMain = document.querySelector("#adminMain")
+    
     adminMain.style.opacity = 0
     for(let i = 1;i<=100;i++) {
       setTimeout(() => {
@@ -184,6 +185,53 @@ export default function Admin() {
                 ></input>
                 <button className="btn_admin_submit" type="submit">
                   shops 등록
+                </button>
+              </form>
+            </AccordionBody>
+          </AccordionItem>
+          <AccordionItem>
+            <AccordionHeader targetId="7">Shop 조회</AccordionHeader>
+            <AccordionBody accordionId="7">
+              <h3 className="admin-h3">전체 상품을 조회합니다.</h3>
+              <form
+                action="http://3.36.122.123:8080/api/items"
+                method="GET"
+                enctype="multipart/form-data"
+              >
+                <button className="btn_admin_submit" type="submit">
+                  상품 조회
+                </button>
+              </form>
+            </AccordionBody>
+          </AccordionItem>
+          <AccordionItem>
+            <AccordionHeader targetId="8">Original Series 조회</AccordionHeader>
+            <AccordionBody accordionId="8">
+              <h3 className="admin-h3">Original Series를 조회합니다.</h3>
+              <form
+                action="http://3.36.122.123:8080/api/items/original"
+                method="GET"
+                enctype="multipart/form-data"
+              >
+                <button className="btn_admin_submit" type="submit">
+                  Original Series
+                </button>
+              </form>
+            </AccordionBody>
+          </AccordionItem>
+          <AccordionItem>
+            <AccordionHeader targetId="9">
+              Collaborate Series 조회
+            </AccordionHeader>
+            <AccordionBody accordionId="9">
+              <h3 className="admin-h3">Collaborate Series를 조회합니다.</h3>
+              <form
+                action="http://3.36.122.123:8080/api/items/collaborate"
+                method="GET"
+                enctype="multipart/form-data"
+              >
+                <button className="btn_admin_submit" type="submit">
+                  Collaborate Series
                 </button>
               </form>
             </AccordionBody>

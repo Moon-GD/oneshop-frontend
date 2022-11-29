@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react'
 import ModalShop from './ModalShop';
 import Backdrop from './Backdrop';
 
-function ShopItems() {
+function ShopItems(props) {
   useEffect(() => {
     let explainBox = document.querySelector("#item-explain-area");
     let explainTitle = document.querySelector("#item-title");
@@ -13,6 +13,7 @@ function ShopItems() {
      item.addEventListener('mouseover', () => {
       explainBox.style.display = 'block'
       explainTitle.textContent = item.childNodes[1].textContent
+      explainText.textContent = item.childNodes[2].textContent
      })
      item.addEventListener('mouseleave', () => {
       explainBox.style.display = "none";
@@ -22,9 +23,15 @@ function ShopItems() {
   }, []);
 
   const [modlaIsOpen, setModalIsOpen] = useState(false)
+  const [modalAddress, setAddress] = useState('')
 
-  function deleteHandler() {
+  function deleteHandler(address) {
+      setAddress(address)
       setModalIsOpen(true)
+  }
+
+  function getImageValue(string){
+    return "http://3.36.122.123:8080/api/image/" + string
   }
 
   function closeModalHandler() {
@@ -34,60 +41,24 @@ function ShopItems() {
     return (
       <div className="containerShop">
         <div className="items">
-          <div className="item">
-            <div className="image" onClick={deleteHandler}>
-              <img
-                src={require("../images/10.jpg")}
-                alt="작품"
-                className="item-image"
-              />
+          {props.items.map(item => (
+            <div className="item">
+              <div className="image" onClick={()=>{deleteHandler(getImageValue(item.images[0]))}}>
+                <img
+                  src={getImageValue(item.images[0])}
+                  alt="작품"
+                  className="item-image"
+                />
+              </div>
+              <h2>{item.itemName}</h2>
+              <h3>{item.description}</h3>
             </div>
-            <h2>효창동 김옥희씨</h2>
-          </div>
-          <div className="item">
-            <div className="image" onClick={deleteHandler}>
-              <img
-                src={require("../images/7.jpg")}
-                alt="작품"
-                className="item-image"
-              />
-            </div>
-            <h2>신월동 박근철씨</h2>
-          </div>
-          <div className="item">
-            <div className="image" onClick={deleteHandler}>
-              <img
-                src={require("../images/1.jpg")}
-                alt="작품"
-                className="item-image"
-              />
-            </div>
-            <h2>화장동 문경덕씨</h2>
-          </div>
-          <div className="item">
-            <div className="image" onClick={deleteHandler}>
-              <img
-                src={require("../images/1.jpg")}
-                alt="작품"
-                className="item-image"
-              />
-            </div>
-            <h2>효창동 김옥희씨</h2>
-          </div>
-          <div className="item">
-            <div className="image" onClick={deleteHandler}>
-              <img
-                src={require("../images/1.jpg")}
-                alt="작품"
-                className="item-image"
-              />
-            </div>
-            <h2>효창동 김옥희씨</h2>
-          </div>
+          ))}
         </div>
         {modlaIsOpen && <Backdrop onClose={closeModalHandler} />}
         {modlaIsOpen && (
           <ModalShop
+            address = {modalAddress}
             onCancel={closeModalHandler}
             onConfirm={closeModalHandler}
           />

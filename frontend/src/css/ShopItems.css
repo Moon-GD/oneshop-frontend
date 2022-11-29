@@ -59,6 +59,10 @@
   margin: 4px 0px 0px 70px;
 }
 
+.containerShop .items .item h3{
+  display: none;
+}
+
 .containerShop .items h2{
   background-color: red;
 }

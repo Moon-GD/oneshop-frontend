@@ -22,11 +22,17 @@ function Shop() {
                 return response.json()
             })
             .then((data) => {
-                console.log('하하하하하')
-                console.log(data)
+                const items = []
 
+                for (const key in data) {
+                    const item = {
+                        ...data[key],
+                    }
+
+                    items.push(item)
+                }
                 setIsLoading(false)
-                // setLoadedMeetups(items)
+                setLoadedMeetups(items)
             })
     }, [])
 
@@ -42,7 +48,7 @@ function Shop() {
         <section className='main'>
             <UserInfo></UserInfo>
             <ShopDescription></ShopDescription>
-            <ShopItems></ShopItems>
+            <ShopItems items={loadingItems}></ShopItems>
         </section>
     )
 }

@@ -12,7 +12,7 @@ function ModalShop(props) {
         <div className="modals">
             <div className="item">
                 <div className="image">
-                <img src={require('../images/10.jpg')} alt="작품"/>
+                <img src={props.address} alt="작품"/>
                 </div>
             </div>
             <p>Are you sure?</p>

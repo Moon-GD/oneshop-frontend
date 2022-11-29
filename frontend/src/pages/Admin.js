@@ -28,6 +28,7 @@ export default function Admin() {
   // Fade In Effect
   useEffect(() => {
     let adminMain = document.querySelector("#adminMain")
+    adminMain.style.opacity = 0
     for(let i = 1;i<=100;i++) {
       setTimeout(() => {
         adminMain.style.opacity = 0.01 * i
@@ -167,8 +168,12 @@ export default function Admin() {
                 <input id="item_price" name="price"></input>
                 <label for="item_quantity">상품 수량 :&nbsp;</label>
                 <input id="item_quantity" name="stockQuantity"></input>
+                <label for="item_artist">상품 작가 :&nbsp;</label>
+                <input id="item_artist" name="artist"></input>
                 <label for="item_description">상품 설명 :&nbsp;</label>
                 <input id="item_description" name="description"></input>
+                <label for="item_series">상품 카테고리 :&nbsp;</label>
+                <input id="item_series" name="itemSeries"></input>
                 <br></br>
                 <label for="item_image">imageFIles :&nbsp;</label>
                 <input
@@ -185,7 +190,15 @@ export default function Admin() {
           </AccordionItem>
         </Accordion>
       </div>
-      <button className="btn_admin_submit" id="btn_admin_go_home" onClick={() => {adminGoHome();}}>홈 이동</button>
+      <button
+        className="btn_admin_submit"
+        id="btn_admin_go_home"
+        onClick={() => {
+          adminGoHome();
+        }}
+      >
+        홈 이동
+      </button>
     </div>
   );
 }

@@ -1,23 +1,38 @@
-import ImageGallery from 'react-image-gallery';
 import '../css/NewsList.css'
 
-const images = [
-  {
-    original: 'https://picsum.photos/id/1018/1000/600/',
-    thumbnail: 'https://picsum.photos/id/1018/250/150/',
-  },
-  {
-    original: 'https://picsum.photos/id/1015/1000/600/',
-    thumbnail: 'https://picsum.photos/id/1015/250/150/',
-  },
-  {
-    original: 'https://picsum.photos/id/1019/1000/600/',
-    thumbnail: 'https://picsum.photos/id/1019/250/150/',
-  },
-];
-
 function NewsList() {
-    return <ImageGallery items={images} />;
+    return (
+        <div class='discusBox'>
+            <img src='http://placekitten.com/120/120' />
+
+            <div class='discusTitle'>
+                <h3>[test] Title of the Discussion</h3>
+            </div>
+
+            <div class='discusBrief'>
+                <p>
+                    Here we are talking about something. and this is the short
+                    brief about it.
+                </p>
+            </div>
+
+            <div class='discusMeta'>
+                <div class='discusMetaPostedOn'>
+                    <span>Posted on</span>
+                    <span class='discusMetaPostedOnDate'>4/4/1984</span>
+                </div>
+
+                <div class='discusBy'>
+                    <span>by</span>
+                    <span>Firstname Surname</span>
+                </div>
+
+                <div class='discusLink'>
+                    <a href='#'>View &rarr;</a>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 export default NewsList

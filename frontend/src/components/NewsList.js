@@ -1,36 +1,74 @@
 import '../css/NewsList.css'
+import { useState, useEffect } from 'react'
+import NewsModal from './NewsModal';
+import Backdrop from './Backdrop';
 
-function NewsList() {
+function NewsList(props) {
+  const [modlaIsOpen, setModalIsOpen] = useState(false)
+  const [modalTitle, setTitle] = useState('')
+  const [modalContent, setContent] = useState('')
+  const [modalImage, setImage] = useState('')
+  const [modalDate, setDate] = useState('')
+
+
+  function deleteHandler(title, content, image, date) {
+      setTitle(title)
+      setContent(content)
+      setImage(image)
+      setDate(date)
+      setModalIsOpen(true)
+  }
+  function closeModalHandler() {
+    setModalIsOpen(false)
+}  
+
+function getImageLink(image){
+  return "http://3.36.122.123:8080/api/image/" + image
+}
+
     return (
-        <div class='discusBox'>
-            <img src='http://placekitten.com/120/120' />
+        <div className='containerNews'>
+            <div className='newsList'>
+              {props.items.map(item => (
+                <div className='discusBox'>
+                  <img src={getImageLink(item.imageFiles)} />
 
-            <div class='discusTitle'>
-                <h3>[test] Title of the Discussion</h3>
-            </div>
+                  <div className='discusTitle'>
+                      <h3>{item.title}</h3>
+                  </div>
 
-            <div class='discusBrief'>
-                <p>
-                    Here we are talking about something. and this is the short
-                    brief about it.
-                </p>
-            </div>
+                  <div className='discusBrief'>
+                      <p>
+                      {item.content}
+                      </p>
+                  </div>
 
-            <div class='discusMeta'>
-                <div class='discusMetaPostedOn'>
-                    <span>Posted on</span>
-                    <span class='discusMetaPostedOnDate'>4/4/1984</span>
+                  <div className='discusMeta'>
+                      <div className='discusMetaPostedOn'>
+                          <span>Posted on</span>
+                          <span className='discusMetaPostedOnDate'>
+                          {item.localDataType}
+                          </span>
+                      </div>
+
+                      <div className='discusLink' onClick={()=>{deleteHandler(item.title, item.content, item.imageFiles, item.localDateTime)}}>
+                          <a href='#'>View &rarr;</a>
+                      </div>
+                  </div>
                 </div>
-
-                <div class='discusBy'>
-                    <span>by</span>
-                    <span>Firstname Surname</span>
-                </div>
-
-                <div class='discusLink'>
-                    <a href='#'>View &rarr;</a>
-                </div>
+              ))}
             </div>
+            {modlaIsOpen && <Backdrop onClose={closeModalHandler} />}
+            {modlaIsOpen && (
+              <NewsModal
+                imageFile={modalImage}
+                title={modalTitle}
+                content={modalContent}
+                date={modalDate}
+                onCancel={closeModalHandler}
+                onConfirm={closeModalHandler}
+              />
+            )}
         </div>
     )
 }

@@ -26,13 +26,6 @@
   background-color: rgba(0,0,0,0);
 }
 
-.containerShop .items::-webkit-scrollbar-button:start:decrement,
-.containerShop .items::-webkit-scrollbar-button:end:increment {
-  display:block;
-  height:5px;
-  background-color: rgb(183, 179, 179);
-} 
-
 .containerShop .items .item {
   flex: 0 0 auto;
   width: 15vw;

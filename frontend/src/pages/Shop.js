@@ -9,6 +9,20 @@ function Shop() {
     const [isLoading, setIsLoading] = useState(true)
     const [loadingItems, setLoadedMeetups] = useState([])
 
+    fetch('http://3.36.122.123:8080/api/items/4', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+            .then((response) => {
+              console.log(response)
+                return response.json()
+            })
+            .then((data) => {
+                console.log(data)
+            })
+            
     useEffect(() => {
         setIsLoading(true)
         fetch("http://3.36.122.123:8080/api/items", {

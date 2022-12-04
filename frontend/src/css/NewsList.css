@@ -1,10 +1,35 @@
+.containerNews {
+    height: 70vh;
+    margin-right: 5vw;
+    margin-top: 20vh;
+    margin-left: -5vw;
+}
+
+.containerNews .newsList {
+  max-width:70vw;
+  max-height: 35vw;
+  padding: 40px 0px;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+.containerNews .newsList::-webkit-scrollbar{
+  height: 10px;
+}
+.containerNews .newsList::-webkit-scrollbar-thumb{
+  border-radius: 5px;
+  background-color: rgb(177, 177, 183);
+}
+.containerNews .newsList::-webkit-scrollbar-track{
+  background-color: rgba(0,0,0,0);
+}
+
 .discusBox {
   border: #333 solid 1px;
   height: 120px;
   width: 720px;
   position: relative;
   background-color: #fff;
-  margin-top: 25vh;
 }
 
 .discusTitle {
@@ -41,6 +66,11 @@
   font-size: 11px;
   line-height: 20px;
   vertical-align: middle;
+}
+
+.discusBox img {
+  width: 17%;
+  height: 100%;
 }
 
 .discusMetaPostedOn, .discusBy {

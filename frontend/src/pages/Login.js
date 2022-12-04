@@ -75,13 +75,12 @@ function Login() {
             password: PW,
         }
 
-        fetch("http://3.36.122.123:8080/api/login", {
+        fetch("https://3.36.122.123:8080/api/login", {
           method: "POST",
           body: JSON.stringify(info),
           headers: {
             "Content-Type": "application/json",
           },
-          referrerPolicy: "unsafe_url",
         })
           .then((response) => {
             console.log(response);

@@ -75,94 +75,94 @@ function Login() {
             password: PW,
         }
 
-        fetch('http://3.36.122.123:8080/api/login', {
-            method: 'POST',
-            body: JSON.stringify(info),
-            headers: {
-                'Content-Type': 'application/json',
-            },
+        fetch("http://3.36.122.123:8080/api/login", {
+          method: "POST",
+          body: JSON.stringify(info),
+          headers: {
+            "Content-Type": "application/json",
+          },
+          referrerPolicy: "unsafe_url",
         })
-            .then((response) => {
-                console.log(response)
-                if (response.status === 200) {
-                    console.log('성공')
-                    let navbar_login = document.querySelector('#navbar__login')
-                    navbar_login.textContent = 'logout'
-                    goBack()
+          .then((response) => {
+            console.log(response);
+            if (response.status === 200) {
+              console.log("성공");
+              let navbar_login = document.querySelector("#navbar__login");
+              navbar_login.textContent = "logout";
+              goBack();
+            }
+            // 로그인 실패 하는 경우
+            else {
+              if (flag) {
+                return;
+              }
+
+              flag = true;
+
+              console.log("실패");
+              let loginModal = document.querySelector("#loginModal");
+              loginModal.style.display = "block";
+              for (let i = 1; i <= 100; i++) {
+                setTimeout(() => {
+                  loginModal.style.opacity = 1 - 0.01 * i;
+                }, 10 * i);
+              }
+
+              setTimeout(() => {
+                loginModal.style.display = "none";
+                flag = false;
+              }, 1200);
+
+              return;
+            }
+            return response.json();
+          })
+          .then((loginInfo) => {
+            console.log(loginInfo);
+            if (loginInfo) {
+              let userInfo = document.querySelector("#userinfo-area");
+              userInfo.textContent = loginInfo.name + " 회원님 반갑습니다.";
+              userInfo.style.display = "block";
+
+              // 관리자 계정
+              if (
+                loginInfo.name === "이준태" &&
+                loginInfo.userId === "__admin__"
+              ) {
+                // 관리자 페이지로 가는 버튼 생성 후 삽입
+                let btnAdmin = document.createElement("button");
+                btnAdmin.className = "btnBasket";
+                btnAdmin.addEventListener("click", () => {
+                  navigate("./admin");
+                });
+                btnAdmin.textContent = "관리자";
+                userInfo.appendChild(btnAdmin);
+
+                // 페이드인 효과
+                for (let i = 0; i < 100; i++) {
+                  setTimeout(() => {
+                    userInfo.style.opacity = 0.01 * i;
+                  }, i * 10);
                 }
-                // 로그인 실패 하는 경우
-                else {
-                    if (flag) {
-                        return
-                    }
+              } else {
+                // 장바구니로 가는 버튼 생성 후 삽입
+                let btnBasket = document.createElement("button");
+                btnBasket.className = "btnBasket";
+                btnBasket.addEventListener("click", () => {
+                  navigate("./shopBasket");
+                });
+                btnBasket.textContent = "장바구니";
+                userInfo.appendChild(btnBasket);
 
-                    flag = true
-
-                    console.log('실패')
-                    let loginModal = document.querySelector('#loginModal')
-                    loginModal.style.display = 'block'
-                    for (let i = 1; i <= 100; i++) {
-                        setTimeout(() => {
-                            loginModal.style.opacity = 1 - 0.01 * i
-                        }, 10 * i)
-                    }
-
-                    setTimeout(() => {
-                        loginModal.style.display = 'none'
-                        flag = false
-                    }, 1200)
-
-                    return
+                // 페이드인 효과
+                for (let i = 0; i < 100; i++) {
+                  setTimeout(() => {
+                    userInfo.style.opacity = 0.01 * i;
+                  }, i * 10);
                 }
-                return response.json()
-            })
-            .then((loginInfo) => {
-              console.log(loginInfo)
-                if (loginInfo) {
-                    let userInfo = document.querySelector('#userinfo-area')
-                    userInfo.textContent =
-                        loginInfo.name + ' 회원님 반갑습니다.'
-                    userInfo.style.display = 'block'
-
-                    // 관리자 계정
-                    if (
-                        loginInfo.name === '이준태' &&
-                        loginInfo.userId === '__admin__'
-                    ) {
-                        // 관리자 페이지로 가는 버튼 생성 후 삽입
-                        let btnAdmin = document.createElement('button')
-                        btnAdmin.className = 'btnBasket'
-                        btnAdmin.addEventListener('click', () => {
-                            navigate('./admin')
-                        })
-                        btnAdmin.textContent = '관리자'
-                        userInfo.appendChild(btnAdmin)
-
-                        // 페이드인 효과
-                        for (let i = 0; i < 100; i++) {
-                            setTimeout(() => {
-                                userInfo.style.opacity = 0.01 * i
-                            }, i * 10)
-                        }
-                    } else {
-                        // 장바구니로 가는 버튼 생성 후 삽입
-                        let btnBasket = document.createElement('button')
-                        btnBasket.className = 'btnBasket'
-                        btnBasket.addEventListener('click', () => {
-                            navigate('./shopBasket')
-                        })
-                        btnBasket.textContent = '장바구니'
-                        userInfo.appendChild(btnBasket)
-
-                        // 페이드인 효과
-                        for (let i = 0; i < 100; i++) {
-                            setTimeout(() => {
-                                userInfo.style.opacity = 0.01 * i
-                            }, i * 10)
-                        }
-                    }
-                }
-            })
+              }
+            }
+          });
     }
 
     return (

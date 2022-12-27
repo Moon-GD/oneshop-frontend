@@ -7,9 +7,11 @@ import NewsList from './../components/NewsList';
 
 
 function News() {
-  const [isLoading, setIsLoading] = useState(true)
-  const [loadingItems, setLoadedMeetups] = useState([])
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadingItems, setLoadedMeetups] = useState([]);
 
+  // 서버 연결되어 있을 때의 News
+  /*
     useEffect(() => {
         setIsLoading(true)
         fetch("http://3.36.122.123:8080/api/news", {
@@ -51,6 +53,14 @@ function News() {
       <UserInfo></UserInfo>
       <NewsYears></NewsYears>
       <NewsList items={loadingItems}></NewsList>
+    </section>
+  );*/
+
+  return (
+    <section className="main">
+      <UserInfo></UserInfo>
+      <NewsYears></NewsYears>
+      <NewsList></NewsList>
     </section>
   );
 }

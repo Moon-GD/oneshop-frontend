@@ -9,6 +9,7 @@ function ShopItems(props) {
     let explainTitle = document.querySelector("#item-title");
     let explainText = document.querySelector("#item-explain");
     let items = document.querySelectorAll(".item");
+    
     items.forEach((item) => {
      item.addEventListener('mouseover', () => {
       explainBox.style.display = 'block'

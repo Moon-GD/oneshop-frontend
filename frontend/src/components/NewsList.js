@@ -4,6 +4,8 @@ import NewsModal from './NewsModal';
 import Backdrop from './Backdrop';
 
 function NewsList(props) {
+  // 서버 연동되어 있을 때의 NewsList
+  /*
   const [modlaIsOpen, setModalIsOpen] = useState(false)
   const [modalTitle, setTitle] = useState('')
   const [modalContent, setContent] = useState('')
@@ -20,7 +22,7 @@ function NewsList(props) {
   }
   function closeModalHandler() {
     setModalIsOpen(false)
-}  
+  }  
 
 function getImageLink(image){
   return "http://3.36.122.123:8080/api/image/" + image
@@ -71,6 +73,62 @@ function getImageLink(image){
             )}
         </div>
     )
+   */
+
+  const [modlaIsOpen, setModalIsOpen] = useState(false);
+  const [modalTitle, setTitle] = useState("");
+  const [modalContent, setContent] = useState("");
+  const [modalImage, setImage] = useState("");
+  const [modalDate, setDate] = useState("");
+  
+  function deleteHandler(title, content, image, date) {
+    setTitle(title);
+    setContent(content);
+    setImage(image);
+    setDate(date);
+    setModalIsOpen(true);
+  }
+
+  function closeModalHandler() {
+    setModalIsOpen(false);
+  }
+
+  return (
+    <div className="containerNews">
+      <div className="newsList">
+        <div className="discusBox">
+          <img src="frontend\src\images\1.jpg"/>
+          <div className="discusTitle">
+            <h3>title</h3>
+          </div>
+          <div className="discusBrief">
+            <p>content</p>
+          </div>
+          <div className="discusMeta">
+            <div className="discusMetaPostedOn">
+              <span>Posted on</span>
+              <span className="discusMetaPostedOnDate">
+                dataType
+              </span>
+            </div>
+
+            <div
+              className="discusLink"
+              onClick={() => {
+                deleteHandler(
+                  
+                );
+              }}
+            >
+            <a href="#">View &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      {modlaIsOpen && <Backdrop onClose={closeModalHandler} />}
+      {modlaIsOpen && 1}
+    </div>
+  );
 }
 
 export default NewsList

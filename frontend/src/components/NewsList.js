@@ -2,6 +2,9 @@ import '../css/NewsList.css'
 import { useState, useEffect } from 'react'
 import NewsModal from './NewsModal';
 import Backdrop from './Backdrop';
+import img01 from "../images/1.jpg";
+import img07 from "../images/7.jpg";
+import img10 from "../images/10.jpg";
 
 function NewsList(props) {
   // 서버 연동되어 있을 때의 NewsList
@@ -97,7 +100,7 @@ function getImageLink(image){
     <div className="containerNews">
       <div className="newsList">
         <div className="discusBox">
-          <img src="frontend\src\images\1.jpg"/>
+          <img src={img01} alt="이미지" />
           <div className="discusTitle">
             <h3>title</h3>
           </div>
@@ -107,26 +110,79 @@ function getImageLink(image){
           <div className="discusMeta">
             <div className="discusMetaPostedOn">
               <span>Posted on</span>
-              <span className="discusMetaPostedOnDate">
-                dataType
-              </span>
+              <span className="discusMetaPostedOnDate">dataType</span>
             </div>
 
             <div
               className="discusLink"
               onClick={() => {
-                deleteHandler(
-                  
-                );
+                deleteHandler("title", "content", img01, "date");
               }}
             >
-            <a href="#">View &rarr;</a>
+              <a href="#">View &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div className="discusBox">
+          <img src={img07} alt="이미지" />
+          <div className="discusTitle">
+            <h3>title</h3>
+          </div>
+          <div className="discusBrief">
+            <p>content</p>
+          </div>
+          <div className="discusMeta">
+            <div className="discusMetaPostedOn">
+              <span>Posted on</span>
+              <span className="discusMetaPostedOnDate">dataType</span>
+            </div>
+
+            <div
+              className="discusLink"
+              onClick={() => {
+                deleteHandler("title", "content", img07, "date");
+              }}
+            >
+              <a href="#">View &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div className="discusBox">
+          <img src={img10} alt="이미지" />
+          <div className="discusTitle">
+            <h3>title</h3>
+          </div>
+          <div className="discusBrief">
+            <p>content</p>
+          </div>
+          <div className="discusMeta">
+            <div className="discusMetaPostedOn">
+              <span>Posted on</span>
+              <span className="discusMetaPostedOnDate">dataType</span>
+            </div>
+
+            <div
+              className="discusLink"
+              onClick={() => {
+                deleteHandler("title", "content", img10, "date");
+              }}
+            >
+              <a href="#">View &rarr;</a>
             </div>
           </div>
         </div>
       </div>
       {modlaIsOpen && <Backdrop onClose={closeModalHandler} />}
-      {modlaIsOpen && 1}
+      {modlaIsOpen && (
+        <NewsModal
+          imageFile={modalImage}
+          title={modalTitle}
+          content={modalContent}
+          date={modalDate}
+          onCancel={closeModalHandler}
+          onConfirm={closeModalHandler}
+        />
+      )}
     </div>
   );
 }
